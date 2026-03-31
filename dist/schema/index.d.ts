@@ -1,0 +1,484 @@
+import { z } from "zod";
+export declare const leadSourceEnum: import("drizzle-orm/pg-core").PgEnum<["contact_form", "popup", "chatbot", "whatsapp", "other"]>;
+export declare const leadStatusEnum: import("drizzle-orm/pg-core").PgEnum<["new", "contacted", "qualified", "converted", "lost"]>;
+export declare const contactSubmissions: import("drizzle-orm/pg-core").PgTableWithColumns<{
+    name: "contact_submissions";
+    schema: undefined;
+    columns: {
+        id: import("drizzle-orm/pg-core").PgColumn<{
+            name: "id";
+            tableName: "contact_submissions";
+            dataType: "number";
+            columnType: "PgSerial";
+            data: number;
+            driverParam: number;
+            notNull: true;
+            hasDefault: true;
+            enumValues: undefined;
+            baseColumn: never;
+        }, {}, {}>;
+        name: import("drizzle-orm/pg-core").PgColumn<{
+            name: "name";
+            tableName: "contact_submissions";
+            dataType: "string";
+            columnType: "PgVarchar";
+            data: string;
+            driverParam: string;
+            notNull: true;
+            hasDefault: false;
+            enumValues: [string, ...string[]];
+            baseColumn: never;
+        }, {}, {}>;
+        email: import("drizzle-orm/pg-core").PgColumn<{
+            name: "email";
+            tableName: "contact_submissions";
+            dataType: "string";
+            columnType: "PgVarchar";
+            data: string;
+            driverParam: string;
+            notNull: true;
+            hasDefault: false;
+            enumValues: [string, ...string[]];
+            baseColumn: never;
+        }, {}, {}>;
+        phone: import("drizzle-orm/pg-core").PgColumn<{
+            name: "phone";
+            tableName: "contact_submissions";
+            dataType: "string";
+            columnType: "PgVarchar";
+            data: string;
+            driverParam: string;
+            notNull: false;
+            hasDefault: false;
+            enumValues: [string, ...string[]];
+            baseColumn: never;
+        }, {}, {}>;
+        message: import("drizzle-orm/pg-core").PgColumn<{
+            name: "message";
+            tableName: "contact_submissions";
+            dataType: "string";
+            columnType: "PgText";
+            data: string;
+            driverParam: string;
+            notNull: true;
+            hasDefault: false;
+            enumValues: [string, ...string[]];
+            baseColumn: never;
+        }, {}, {}>;
+        ipAddress: import("drizzle-orm/pg-core").PgColumn<{
+            name: "ip_address";
+            tableName: "contact_submissions";
+            dataType: "string";
+            columnType: "PgVarchar";
+            data: string;
+            driverParam: string;
+            notNull: false;
+            hasDefault: false;
+            enumValues: [string, ...string[]];
+            baseColumn: never;
+        }, {}, {}>;
+        userAgent: import("drizzle-orm/pg-core").PgColumn<{
+            name: "user_agent";
+            tableName: "contact_submissions";
+            dataType: "string";
+            columnType: "PgText";
+            data: string;
+            driverParam: string;
+            notNull: false;
+            hasDefault: false;
+            enumValues: [string, ...string[]];
+            baseColumn: never;
+        }, {}, {}>;
+        emailSent: import("drizzle-orm/pg-core").PgColumn<{
+            name: "email_sent";
+            tableName: "contact_submissions";
+            dataType: "boolean";
+            columnType: "PgBoolean";
+            data: boolean;
+            driverParam: boolean;
+            notNull: true;
+            hasDefault: true;
+            enumValues: undefined;
+            baseColumn: never;
+        }, {}, {}>;
+        createdAt: import("drizzle-orm/pg-core").PgColumn<{
+            name: "created_at";
+            tableName: "contact_submissions";
+            dataType: "date";
+            columnType: "PgTimestamp";
+            data: Date;
+            driverParam: string;
+            notNull: true;
+            hasDefault: true;
+            enumValues: undefined;
+            baseColumn: never;
+        }, {}, {}>;
+    };
+    dialect: "pg";
+}>;
+export declare const insertContactSchema: z.ZodObject<Omit<{
+    id: z.ZodOptional<z.ZodNumber>;
+    name: z.ZodString;
+    email: z.ZodString;
+    phone: z.ZodOptional<z.ZodNullable<z.ZodOptional<z.ZodString>>>;
+    message: z.ZodString;
+    ipAddress: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+    userAgent: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+    emailSent: z.ZodOptional<z.ZodBoolean>;
+    createdAt: z.ZodOptional<z.ZodDate>;
+}, "id" | "emailSent" | "createdAt">, z.UnknownKeysParam, z.ZodTypeAny, {
+    name: string;
+    email: string;
+    message: string;
+    phone?: string | null | undefined;
+    ipAddress?: string | null | undefined;
+    userAgent?: string | null | undefined;
+}, {
+    name: string;
+    email: string;
+    message: string;
+    phone?: string | null | undefined;
+    ipAddress?: string | null | undefined;
+    userAgent?: string | null | undefined;
+}>;
+export type InsertContact = z.infer<typeof insertContactSchema>;
+export type Contact = typeof contactSubmissions.$inferSelect;
+export declare const leads: import("drizzle-orm/pg-core").PgTableWithColumns<{
+    name: "leads";
+    schema: undefined;
+    columns: {
+        id: import("drizzle-orm/pg-core").PgColumn<{
+            name: "id";
+            tableName: "leads";
+            dataType: "number";
+            columnType: "PgSerial";
+            data: number;
+            driverParam: number;
+            notNull: true;
+            hasDefault: true;
+            enumValues: undefined;
+            baseColumn: never;
+        }, {}, {}>;
+        name: import("drizzle-orm/pg-core").PgColumn<{
+            name: "name";
+            tableName: "leads";
+            dataType: "string";
+            columnType: "PgVarchar";
+            data: string;
+            driverParam: string;
+            notNull: true;
+            hasDefault: false;
+            enumValues: [string, ...string[]];
+            baseColumn: never;
+        }, {}, {}>;
+        email: import("drizzle-orm/pg-core").PgColumn<{
+            name: "email";
+            tableName: "leads";
+            dataType: "string";
+            columnType: "PgVarchar";
+            data: string;
+            driverParam: string;
+            notNull: true;
+            hasDefault: false;
+            enumValues: [string, ...string[]];
+            baseColumn: never;
+        }, {}, {}>;
+        phone: import("drizzle-orm/pg-core").PgColumn<{
+            name: "phone";
+            tableName: "leads";
+            dataType: "string";
+            columnType: "PgVarchar";
+            data: string;
+            driverParam: string;
+            notNull: false;
+            hasDefault: false;
+            enumValues: [string, ...string[]];
+            baseColumn: never;
+        }, {}, {}>;
+        interestedService: import("drizzle-orm/pg-core").PgColumn<{
+            name: "interested_service";
+            tableName: "leads";
+            dataType: "string";
+            columnType: "PgVarchar";
+            data: string;
+            driverParam: string;
+            notNull: false;
+            hasDefault: false;
+            enumValues: [string, ...string[]];
+            baseColumn: never;
+        }, {}, {}>;
+        source: import("drizzle-orm/pg-core").PgColumn<{
+            name: "source";
+            tableName: "leads";
+            dataType: "string";
+            columnType: "PgEnumColumn";
+            data: "contact_form" | "popup" | "chatbot" | "whatsapp" | "other";
+            driverParam: string;
+            notNull: true;
+            hasDefault: false;
+            enumValues: ["contact_form", "popup", "chatbot", "whatsapp", "other"];
+            baseColumn: never;
+        }, {}, {}>;
+        status: import("drizzle-orm/pg-core").PgColumn<{
+            name: "status";
+            tableName: "leads";
+            dataType: "string";
+            columnType: "PgEnumColumn";
+            data: "new" | "contacted" | "qualified" | "converted" | "lost";
+            driverParam: string;
+            notNull: true;
+            hasDefault: true;
+            enumValues: ["new", "contacted", "qualified", "converted", "lost"];
+            baseColumn: never;
+        }, {}, {}>;
+        ipAddress: import("drizzle-orm/pg-core").PgColumn<{
+            name: "ip_address";
+            tableName: "leads";
+            dataType: "string";
+            columnType: "PgVarchar";
+            data: string;
+            driverParam: string;
+            notNull: false;
+            hasDefault: false;
+            enumValues: [string, ...string[]];
+            baseColumn: never;
+        }, {}, {}>;
+        notes: import("drizzle-orm/pg-core").PgColumn<{
+            name: "notes";
+            tableName: "leads";
+            dataType: "string";
+            columnType: "PgText";
+            data: string;
+            driverParam: string;
+            notNull: false;
+            hasDefault: false;
+            enumValues: [string, ...string[]];
+            baseColumn: never;
+        }, {}, {}>;
+        emailSent: import("drizzle-orm/pg-core").PgColumn<{
+            name: "email_sent";
+            tableName: "leads";
+            dataType: "boolean";
+            columnType: "PgBoolean";
+            data: boolean;
+            driverParam: boolean;
+            notNull: true;
+            hasDefault: true;
+            enumValues: undefined;
+            baseColumn: never;
+        }, {}, {}>;
+        createdAt: import("drizzle-orm/pg-core").PgColumn<{
+            name: "created_at";
+            tableName: "leads";
+            dataType: "date";
+            columnType: "PgTimestamp";
+            data: Date;
+            driverParam: string;
+            notNull: true;
+            hasDefault: true;
+            enumValues: undefined;
+            baseColumn: never;
+        }, {}, {}>;
+        updatedAt: import("drizzle-orm/pg-core").PgColumn<{
+            name: "updated_at";
+            tableName: "leads";
+            dataType: "date";
+            columnType: "PgTimestamp";
+            data: Date;
+            driverParam: string;
+            notNull: true;
+            hasDefault: true;
+            enumValues: undefined;
+            baseColumn: never;
+        }, {}, {}>;
+    };
+    dialect: "pg";
+}>;
+export declare const insertLeadSchema: z.ZodObject<Omit<{
+    id: z.ZodOptional<z.ZodNumber>;
+    name: z.ZodString;
+    email: z.ZodString;
+    phone: z.ZodOptional<z.ZodNullable<z.ZodOptional<z.ZodString>>>;
+    ipAddress: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+    emailSent: z.ZodOptional<z.ZodBoolean>;
+    createdAt: z.ZodOptional<z.ZodDate>;
+    status: z.ZodOptional<z.ZodEnum<["new", "contacted", "qualified", "converted", "lost"]>>;
+    interestedService: z.ZodOptional<z.ZodNullable<z.ZodOptional<z.ZodString>>>;
+    source: z.ZodEnum<["contact_form", "popup", "chatbot", "whatsapp", "other"]>;
+    notes: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+    updatedAt: z.ZodOptional<z.ZodDate>;
+}, "id" | "emailSent" | "createdAt" | "status" | "updatedAt">, z.UnknownKeysParam, z.ZodTypeAny, {
+    name: string;
+    email: string;
+    source: "contact_form" | "popup" | "chatbot" | "whatsapp" | "other";
+    phone?: string | null | undefined;
+    ipAddress?: string | null | undefined;
+    interestedService?: string | null | undefined;
+    notes?: string | null | undefined;
+}, {
+    name: string;
+    email: string;
+    source: "contact_form" | "popup" | "chatbot" | "whatsapp" | "other";
+    phone?: string | null | undefined;
+    ipAddress?: string | null | undefined;
+    interestedService?: string | null | undefined;
+    notes?: string | null | undefined;
+}>;
+export type InsertLead = z.infer<typeof insertLeadSchema>;
+export type Lead = typeof leads.$inferSelect;
+export declare const chatSessions: import("drizzle-orm/pg-core").PgTableWithColumns<{
+    name: "chat_sessions";
+    schema: undefined;
+    columns: {
+        id: import("drizzle-orm/pg-core").PgColumn<{
+            name: "id";
+            tableName: "chat_sessions";
+            dataType: "number";
+            columnType: "PgSerial";
+            data: number;
+            driverParam: number;
+            notNull: true;
+            hasDefault: true;
+            enumValues: undefined;
+            baseColumn: never;
+        }, {}, {}>;
+        sessionId: import("drizzle-orm/pg-core").PgColumn<{
+            name: "session_id";
+            tableName: "chat_sessions";
+            dataType: "string";
+            columnType: "PgVarchar";
+            data: string;
+            driverParam: string;
+            notNull: true;
+            hasDefault: false;
+            enumValues: [string, ...string[]];
+            baseColumn: never;
+        }, {}, {}>;
+        name: import("drizzle-orm/pg-core").PgColumn<{
+            name: "name";
+            tableName: "chat_sessions";
+            dataType: "string";
+            columnType: "PgVarchar";
+            data: string;
+            driverParam: string;
+            notNull: false;
+            hasDefault: false;
+            enumValues: [string, ...string[]];
+            baseColumn: never;
+        }, {}, {}>;
+        email: import("drizzle-orm/pg-core").PgColumn<{
+            name: "email";
+            tableName: "chat_sessions";
+            dataType: "string";
+            columnType: "PgVarchar";
+            data: string;
+            driverParam: string;
+            notNull: false;
+            hasDefault: false;
+            enumValues: [string, ...string[]];
+            baseColumn: never;
+        }, {}, {}>;
+        phone: import("drizzle-orm/pg-core").PgColumn<{
+            name: "phone";
+            tableName: "chat_sessions";
+            dataType: "string";
+            columnType: "PgVarchar";
+            data: string;
+            driverParam: string;
+            notNull: false;
+            hasDefault: false;
+            enumValues: [string, ...string[]];
+            baseColumn: never;
+        }, {}, {}>;
+        interestedService: import("drizzle-orm/pg-core").PgColumn<{
+            name: "interested_service";
+            tableName: "chat_sessions";
+            dataType: "string";
+            columnType: "PgVarchar";
+            data: string;
+            driverParam: string;
+            notNull: false;
+            hasDefault: false;
+            enumValues: [string, ...string[]];
+            baseColumn: never;
+        }, {}, {}>;
+        completed: import("drizzle-orm/pg-core").PgColumn<{
+            name: "completed";
+            tableName: "chat_sessions";
+            dataType: "boolean";
+            columnType: "PgBoolean";
+            data: boolean;
+            driverParam: boolean;
+            notNull: true;
+            hasDefault: true;
+            enumValues: undefined;
+            baseColumn: never;
+        }, {}, {}>;
+        ipAddress: import("drizzle-orm/pg-core").PgColumn<{
+            name: "ip_address";
+            tableName: "chat_sessions";
+            dataType: "string";
+            columnType: "PgVarchar";
+            data: string;
+            driverParam: string;
+            notNull: false;
+            hasDefault: false;
+            enumValues: [string, ...string[]];
+            baseColumn: never;
+        }, {}, {}>;
+        createdAt: import("drizzle-orm/pg-core").PgColumn<{
+            name: "created_at";
+            tableName: "chat_sessions";
+            dataType: "date";
+            columnType: "PgTimestamp";
+            data: Date;
+            driverParam: string;
+            notNull: true;
+            hasDefault: true;
+            enumValues: undefined;
+            baseColumn: never;
+        }, {}, {}>;
+        updatedAt: import("drizzle-orm/pg-core").PgColumn<{
+            name: "updated_at";
+            tableName: "chat_sessions";
+            dataType: "date";
+            columnType: "PgTimestamp";
+            data: Date;
+            driverParam: string;
+            notNull: true;
+            hasDefault: true;
+            enumValues: undefined;
+            baseColumn: never;
+        }, {}, {}>;
+    };
+    dialect: "pg";
+}>;
+export declare const insertChatSessionSchema: z.ZodObject<Omit<{
+    id: z.ZodOptional<z.ZodNumber>;
+    name: z.ZodOptional<z.ZodNullable<z.ZodOptional<z.ZodString>>>;
+    email: z.ZodOptional<z.ZodNullable<z.ZodOptional<z.ZodString>>>;
+    phone: z.ZodOptional<z.ZodNullable<z.ZodOptional<z.ZodString>>>;
+    ipAddress: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+    createdAt: z.ZodOptional<z.ZodDate>;
+    interestedService: z.ZodOptional<z.ZodNullable<z.ZodOptional<z.ZodString>>>;
+    updatedAt: z.ZodOptional<z.ZodDate>;
+    sessionId: z.ZodString;
+    completed: z.ZodOptional<z.ZodBoolean>;
+}, "id" | "createdAt" | "updatedAt" | "completed">, z.UnknownKeysParam, z.ZodTypeAny, {
+    sessionId: string;
+    name?: string | null | undefined;
+    email?: string | null | undefined;
+    phone?: string | null | undefined;
+    ipAddress?: string | null | undefined;
+    interestedService?: string | null | undefined;
+}, {
+    sessionId: string;
+    name?: string | null | undefined;
+    email?: string | null | undefined;
+    phone?: string | null | undefined;
+    ipAddress?: string | null | undefined;
+    interestedService?: string | null | undefined;
+}>;
+export type InsertChatSession = z.infer<typeof insertChatSessionSchema>;
+export type ChatSession = typeof chatSessions.$inferSelect;
+//# sourceMappingURL=index.d.ts.map
